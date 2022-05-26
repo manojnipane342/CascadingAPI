@@ -18,8 +18,8 @@ namespace CascadingApi.Repository
         public async Task AddCity(City city)
         {
             await _Context.Database.ExecuteSqlRawAsync("SP_AddCity @StateId,@Name",
-                 new SqlParameter("@CountryId", city.StateId));
-            new SqlParameter("@Name", city.Name);
+                 new SqlParameter("@StateId", city.StateId),
+            new SqlParameter("@Name", city.Name));
 
         }
 

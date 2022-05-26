@@ -19,8 +19,8 @@ namespace CascadingApi.Repository
         public async Task AddState(State state)
         {
             await _Context.Database.ExecuteSqlRawAsync("SP_AddState @CountryId,@Name",
-                 new SqlParameter("@CountryId", state.CountryId));
-            new SqlParameter("@Name", state.Name);
+                 new SqlParameter("@CountryId", state.CountryId),
+            new SqlParameter("@Name", state.Name));
 
         }
 
@@ -60,7 +60,7 @@ namespace CascadingApi.Repository
                 return result;
             }
             catch (Exception ex)
-            { 
+            {
                 throw;
             }
 
